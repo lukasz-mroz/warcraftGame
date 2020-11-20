@@ -21,7 +21,7 @@ namespace warcraftGame.Controllers
     {
       return Ok(characters[0]);
     }
-    [Route("GetAll")]
+    [HttpGet("GetAll")]
     public IActionResult Get()
     {
       return Ok(characters);
