@@ -16,7 +16,13 @@ namespace warcraftGame.Controllers
       new Character(),
       new Character{Name = "Sam"}
     };
-    public IActionResult Index()
+
+    public IActionResult GetSingle()
+    {
+      return Ok(characters[0]);
+    }
+    [Route("GetAll")]
+    public IActionResult Get()
     {
       return Ok(characters);
     }
