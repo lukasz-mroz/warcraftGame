@@ -11,10 +11,14 @@ namespace warcraftGame.Controllers
   [Route("[controller]")]
   public class CharacterController : Controller
   {
-    private static Character paladin = new Character();
+    private static List<Character> characters = new List<Character>
+    {
+      new Character(),
+      new Character{Name = "Sam"}
+    };
     public IActionResult Index()
     {
-      return Ok(paladin);
+      return Ok(characters);
     }
   }
 }
