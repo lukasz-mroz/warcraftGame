@@ -8,7 +8,7 @@ namespace warcraftGame.Models
   public enum ClassCharacter
   {
     Paladin = 1,
-    Warlock =2,
+    Warlock = 2,
 
   }
 }

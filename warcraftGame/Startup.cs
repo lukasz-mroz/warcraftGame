@@ -10,6 +10,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using warcraftGame.Services;
 
 namespace warcraftGame
 {
@@ -26,6 +27,7 @@ namespace warcraftGame
     public void ConfigureServices(IServiceCollection services)
     {
       services.AddControllers();
+      services.AddScoped<ICharacterService, CharacterService>();
     }
 
     // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -41,7 +43,7 @@ namespace warcraftGame
       app.UseRouting();
 
       app.UseAuthorization();
-
+       
       app.UseEndpoints(endpoints =>
       {
         endpoints.MapControllers();
