@@ -20,22 +20,22 @@ namespace warcraftGame.Controllers
     }
 
     [HttpGet("{id}")]
-    public IActionResult GetSingle(int id)
+    public async Task<IActionResult> GetSingle(int id)
     {
-        return Ok(_characterService.GetCharacterById(id));
+         return Ok(await _characterService.GetCharacterById(id));
 
     }
     
     [HttpGet("GetAll")]
-    public IActionResult Get()
+    public async Task<IActionResult> Get()
     {
-      return Ok(_characterService.GetAllCharacters());
+      return Ok(await _characterService.GetAllCharacters());
     }
 
     [HttpPost]
-    public IActionResult AddCharacter(Character newCharacter)
+    public async Task<IActionResult> AddCharacter(Character newCharacter)
     {
-      return Ok(_characterService);
+      return Ok(await _characterService.AddCharacter(newCharacter));
     }
   }
 }
