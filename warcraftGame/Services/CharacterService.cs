@@ -2,32 +2,38 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using warcraftGame.Dtos;
 using warcraftGame.Models;
 
 namespace warcraftGame.Services
 {
   public class CharacterService : ICharacterService
   {
-
     private static List<Character> characters = new List<Character>
     {
       new Character(),
       new Character{ Id = 1, Name = "Sam"}
     };
-    public async Task<List<Character>> AddCharacter(Character newCharacter)
+    public async Task<ServiceResponse<List<GetCharacterDto>>> AddCharacter(AddCharacterDto newCharacter)
     {
+      var serviceResponse = new ServiceResponse<List<GetCharacterDto>>();
       characters.Add(newCharacter);
-      return characters;
+      serviceResponse.Data = characters;
+      return serviceResponse;
     }
 
-    public async Task<List<Character>> GetAllCharacters()
+    public async Task<ServiceResponse<List<GetCharacterDto>>> GetAllCharacters()
     {
-      return characters;
+      var serviceResponse = new ServiceResponse<List<GetCharacterDto>>();
+      serviceResponse.Data = characters;
+      return serviceResponse;
     }
 
-    public async Task<Character> GetCharacterById(int id)
+    public async Task<ServiceResponse<GetCharacterDto>> GetCharacterById(int id)
     {
-      return characters.FirstOrDefault(c => c.Id == id);
+      var serviceResponse = new ServiceResponse<GetCharacterDto>();
+      serviceResponse.Data = characters.FirstOrDefault(c => c.Id == id);
+      return serviceResponse;
     }
   }
 }
