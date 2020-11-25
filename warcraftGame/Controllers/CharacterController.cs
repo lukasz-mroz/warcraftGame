@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using warcraftGame.Dtos;
 using warcraftGame.Models;
 using warcraftGame.Services;
 
@@ -33,7 +34,7 @@ namespace warcraftGame.Controllers
     }
 
     [HttpPost]
-    public async Task<IActionResult> AddCharacter(Character newCharacter)
+    public async Task<IActionResult> AddCharacter(AddCharacterDto newCharacter)
     {
       return Ok(await _characterService.AddCharacter(newCharacter));
     }
